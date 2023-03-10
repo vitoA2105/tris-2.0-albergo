@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Gioco Tris</title>
+<link rel="stylesheet" type="text/css" href="main/css/style.css">
+</head>
+<body>
+
+<div class="container">
+<div class="title">
+  <h1>Gioco Tris</h1>
+</div>
+<div class="desc">
+<p>Vince il giocatore che riesce a disporre tre dei propri simboli in linea retta orizzontale, verticale o diagonale. Se la griglia viene riempita senza che nessuno dei giocatori sia riuscito a completare una linea retta finisce in pareggio.</p>
+</div>
+<div class="trisGrid">
+<div class="row">
+<div class="col">
+<a href="#" class="gridBtn" data-col="0" data-row="0"></a>
+</div>
+<div class="col">
+<a href="#" class="gridBtn" data-col="1" data-row="0" ></a>
+</div>
+<div class="col">
+<a href="#" class="gridBtn" data-col="2" data-row="0"></a>
+</div>
+</div>
+<div class="row">
+<div class="col">
+<a href="#" class="gridBtn" data-col="0" data-row="1"></a>
+</div>
+<div class="col">
+<a href="#" class="gridBtn" data-col="1" data-row="1"></a>
+</div>
+<div class="col">
+<a href="#" class="gridBtn" data-col="2" data-row="1"></a>
+</div>
+</div>
+<div class="row">
+<div class="col">
+<a href="#" class="gridBtn" data-col="0" data-row="2"></a>
+</div>
+<div class="col">
+<a href="#" class="gridBtn" data-col="1" data-row="2"></a>
+</div>
+<div class="col">
+<a href="#" class="gridBtn" data-col="2" data-row="2"></a>
+</div>
+</div>
+</div>
+</div>
+
+
+<script type="text/javascript">
+let grid = [
+[null,null,null],
+[null,null,null],
+[null,null,null]
+]
+
+
+
+let links = document.querySelectorAll(".gridBtn"),
+currentPlayer = 1,
+    cellIsOccupied = true
+
+
+for(let i = 0; i < links.length; i++){
+let link = links[i]
+link.addEventListener("click", function(e){
+e.preventDefault()
+        cellIsOccupied = e.currentTarget.classList.contains("player2") || e.currentTarget.classList.contains("player1") ;
+       console.log(cellIsOccupied)
+if(cellIsOccupied === false){
+
+console.log(e.currentTarget.dataset)
+         e.currentTarget.classList.toggle("player"+currentPlayer)
+
+         let riga=e.currentTarget.dataset.row
+         let colonna=e.currentTarget.dataset.col
+
+         if(currentPlayer === 1){
+          grid[riga][colonna]="X"
+         }else{
+          grid[riga][colonna]="O"
+         }
+
+
+         if(currentPlayer === 1){
+           currentPlayer = 2
+         }else{
+           currentPlayer = 1
+         }
+       }
+})
+}
+
+function getEmptyCells(grid){
+let emptyCells = []
+for(i = 0; i < 2; i++){
+for(j = 0; j < 2; j++){
+if(grid[i][j]===null){
+emptyCells=emptyCells.push();
+}
+}
+}
+
+}
+
+
+
+</script>
+
+</body>
+</html>

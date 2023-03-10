@@ -1,0 +1,54 @@
+{
+
+box-sizing: border-box;
+}
+
+.title h1{
+text-align: center;
+}
+
+.desc p{
+
+font-size: 22px;
+max-width: 500px;
+text-align: center;
+padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.player1{
+  background-color: red;
+}
+
+.player2{
+  background-color: green;
+}
+
+.trisGrid{
+display: flex;
+flex-direction: column;
+justify-content: center;
+}
+
+.row{
+display: flex;
+}
+
+.col{
+width: 80px;
+height: 80px;
+background: blue;
+border: 2px solid black;
+}
+
+.gridBtn{
+display: block;
+width: 80px;
+height: 80px;
+}
+
+.container{
+max-width: 480px;
+margin-left: auto;
+margin-right: auto;
+}
